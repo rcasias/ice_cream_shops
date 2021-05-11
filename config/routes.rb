@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get '/ice_cream_shops/new', to: 'ice_cream_shops#new'
   post '/ice_cream_shops', to: 'ice_cream_shops#create'
   get '/ice_cream_shops/:id', to: "ice_cream_shops#show"
+  get '/ice_cream_shops/:id/edit', to: 'ice_cream_shops#edit'
+  patch '/ice_cream_shops/:id', to: 'ice_cream_shops#update'
+  delete 'ice_cream_shops/:id', to: 'ice_cream_shops#destroy'
 end

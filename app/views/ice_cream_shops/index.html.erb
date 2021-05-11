@@ -1,5 +1,11 @@
-<h1>All Shops</h1>
+<h1>Top Rated Ice Cream Shops in Denver</h1>
 <% @shops.each do |shop| %>
   <h3><a href="/ice_cream_shops/<%= shop.id %>"><%= shop.name %></a></h3>
   <p><%= shop.description %></p>
+  <a href="/ice_cream_shops/<%= shop.id  %>/edit">Edit</a>
+  <form action="/ice_cream_shops/<%= shop.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
 <% end %>
