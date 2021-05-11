@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get '/ice_cream_shops', to: 'ice_cream_shops#index'
   get '/ice_cream_shops/new', to: 'ice_cream_shops#new'
+  post '/ice_cream_shops', to: 'ice_cream_shops#create'
+  get '/ice_cream_shops/:id', to: "ice_cream_shops#show"
 end

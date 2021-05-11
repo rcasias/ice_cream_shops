@@ -1,4 +1,5 @@
 <h1>All Shops</h1>
 <% @shops.each do |shop| %>
-  <h3><%= shop %></h3>
+  <h3><a href="/ice_cream_shops/<%= shop.id %>"><%= shop.name %></a></h3>
+  <p><%= shop.description %></p>
 <% end %>
