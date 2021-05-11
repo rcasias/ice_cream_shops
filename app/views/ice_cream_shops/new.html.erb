@@ -1,0 +1,7 @@
+<form action='/ice_cream_shops' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Add a new shop:</p>
+  <input type='text' name='shop[name]'/><br/>
+  <textarea name="shop[description]"></textarea><br/>
+  <input type='submit'/>
+</form>
