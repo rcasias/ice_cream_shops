@@ -2,6 +2,12 @@
 
 <h1><%= @shop.name %></h1>
 
-<p><%= @shop.description %></p>
+<p><%= @shop.address %></p>
+<p><%= @shop.phone_number %></p>
+<p><%= @shop.hours_of_operation %></p>
+<p>Delivery offered? <%= @shop.has_delivery %></p>
+<p><%= @shop.rating %> STARS</p>
+<p><%= @shop.created_at %></p>
+<p><%= @shop.updated_at %></p>
 
 <a href="/ice_cream_shops/<%= @shop.id %>/edit">Edit</a>

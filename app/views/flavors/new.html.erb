@@ -1,0 +1,13 @@
+<form action='/flavors' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Add a new flavor:</h3>
+  <p>Flavor Name:</p>
+  <input type='text' name='flavor[flavor_name]'/><br/>
+  <p>Dairy Free?</p>
+  <textarea name="flavor[dairy_free]"></textarea><br/>
+  <p>Nut Free?</p>
+  <textarea name="flavor[nut_free]"></textarea><br/>
+  <p>Calories Per Scoop:</p>
+  <textarea name="flavor[calories_per_scoop]"></textarea><br/>
+  <input type='submit'/>
+</form>

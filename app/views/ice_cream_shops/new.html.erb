@@ -1,7 +1,17 @@
 <form action='/ice_cream_shops' method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Add a new shop:</p>
+  <h3>Add a new shop:</h3>
+  <p>Shop Name:</p>
   <input type='text' name='shop[name]'/><br/>
-  <textarea name="shop[description]"></textarea><br/>
+  <p>Shop Address:</p>
+  <textarea name="shop[address]"></textarea><br/>
+  <p>Shop Phone Number:</p>
+  <textarea name="shop[phone_number]"></textarea><br/>
+  <p>Shop Hours of Operation:</p>
+  <textarea name="shop[hours_of_operation]"></textarea><br/>
+  <p>Does this shop have delivery?</p>
+  <textarea name="shop[has_delivery]"></textarea><br/>
+  <p>Shop rating:</p>
+  <textarea name="shop[rating]"></textarea><br/>
   <input type='submit'/>
 </form>
