@@ -4,7 +4,7 @@ class CreateFlavors < ActiveRecord::Migration[5.2]
       t.string :flavor_name
       t.boolean :dairy_free
       t.boolean :nut_free
-      t.integer :price_per_scoop
+      t.integer :calories_per_scoop
       t.datetime :created_at
       t.datetime :updated_at
     end

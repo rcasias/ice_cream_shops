@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get '/flavors/:id/edit', to: 'flavors#edit'
   patch '/flavors/:id', to: 'flavors#update'
   delete 'flavors/:id', to: 'flavors#destroy'
+
+  get '/ice_cream_shops/:id/flavors', to: 'ice_cream_shops#flavors'
 end
