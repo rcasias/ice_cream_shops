@@ -12,6 +12,8 @@ class FlavorsController < ApplicationController
       dairy_free: params[:flavor][:dairy_free],
       nut_free: params[:flavor][:nut_free],
       calories_per_scoop: params[:flavor][:calories_per_scoop],
+      price_per_scoop: params[:flavor][:price_per_scoop],
+      shop_id: params[:flavor][:shop_id],
       created_at: params[:flavor][:created_at],
       updated_at: params[:flavor][:updated_at]
       })
@@ -34,6 +36,8 @@ class FlavorsController < ApplicationController
       dairy_free: params[:flavor][:dairy_free],
       nut_free: params[:flavor][:nut_free],
       calories_per_scoop: params[:flavor][:calories_per_scoop],
+      price_per_scoop: params[:flavor][:price_per_scoop],
+      shop_id: params[:flavor][:shop_id],
       updated_at: params[:flavor][:updated_at]
       })
       flavor.save

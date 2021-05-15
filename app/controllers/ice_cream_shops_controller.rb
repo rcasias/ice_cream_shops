@@ -49,4 +49,9 @@ class IceCreamShopsController < ApplicationController
     Shop.destroy(params[:id])
     redirect_to '/ice_cream_shops'
   end
+
+  def flavors
+    @shop = Shop.find(params[:id])
+    @flavors = @shop.flavors
+  end
 end

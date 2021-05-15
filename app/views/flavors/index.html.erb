@@ -1,6 +1,13 @@
 <h1>Flavors</h1>
 <% @flavors.each do |flavor| %>
   <h3><a href="/flavors/<%= flavor.id %>"><%= flavor.flavor_name%></a></h3>
+  <p>Dairy Free? <%= flavor.dairy_free%></p>
+  <p>Nut Free? <%= flavor.nut_free%></p>
+  <p>Calories: <%= flavor.calories_per_scoop%></p>
+  <p>Price Per Scoop: <%= flavor.price_per_scoop%></p>
+  <p>Shop Id: <%= flavor.shop_id %></p>
+  <p>Created At: <%= flavor.created_at %></p>
+  <p>Updated At: <%= flavor.updated_at %></p>
   <a href="/flavors/<%= flavor.id  %>/edit">Edit</a>
   <form action="/flavors/<%= flavor.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

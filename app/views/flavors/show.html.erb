@@ -2,14 +2,18 @@
 
 <h1><%= @flavor.flavor_name %></h1>
 
-<p><%= @flavor.dairy_free %></p>
+<p>Dairy Free? <%= @flavor.dairy_free %></p>
 
-<p><%= @flavor.nut_free %></p>
+<p>Nut Free? <%= @flavor.nut_free %></p>
 
-<p><%= @flavor.calories_per_scoop %></p>
+<p>Calories: <%= @flavor.calories_per_scoop %></p>
 
-<p><%= @flavor.created_at %></p>
+<p>Price Per Scoop: <%= @flavor.price_per_scoop %></p>
 
-<p><%= @flavor.updated_at %></p>
+<p>Shop ID: <%= @flavor.shop_id %></p>
+
+<p>Created At: <%= @flavor.created_at %></p>
+
+<p>Updated At: <%= @flavor.updated_at %></p>
 
 <a href="/flavors/<%= @flavor.id %>/edit">Edit</a>
