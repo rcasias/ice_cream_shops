@@ -1,10 +1,36 @@
-<h1>Top Rated Ice Cream Shops in Denver</h1>
-<% @shops.each do |shop| %>
-  <h3><a href="/ice_cream_shops/<%= shop.id %>"><%= shop.name %></a></h3>
-  <a href="/ice_cream_shops/<%= shop.id  %>/edit">Edit</a>
-  <form action="/ice_cream_shops/<%= shop.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
-<% end %>
+<div class="ice_cream_background_image" >
+  <div class="top_nav_bar_wrapper">
+    <a href="/flavors" class="top_links_nav_links margin_left_display">Flavors Index</a>
+    <a href="/ice_cream_shops/new" class="top_links_nav_links">Add a New Shop</a>
+    <%# <%= link_to "Add a New Flavor", "/ice_cream_shops/new"%> %> %>
+  </div>
+
+  <div>
+    <h1 class="title_header">Ice Cream Shops</h1>
+  </div>
+
+  <% @shops.each do |shop| %>
+
+    <div class = "grid_contrainer">
+      <div>
+        <h3><a class="shop_name" href="/ice_cream_shops/<%= shop.id %>"><%= shop.name %></a></h3>
+      </div>
+
+      <div>
+        <p class= "timestamp"><%= shop.created_at %></p>
+      </div>
+
+      <div class="edit_delete_links_display">
+        <button type="button" name="button" class="">
+          <a class= "" href="/ice_cream_shops/<%= shop.id  %>/edit">Edit</a>
+        </button>
+        <form class= "action="/ice_cream_shops/<%= shop.id %>" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete"/>
+        </form>
+      </div>
+
+    </div>
+  <% end %>
+</div>

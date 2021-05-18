@@ -1,3 +1,29 @@
-<a href="/ice_cream_shops">Ice Cream Shop Index</a>
+<div class="top_nav_bar_wrapper">
+  <a href="/ice_cream_shops" class="top_links_nav_links margin_left_display">Ice Cream Shop Index</a>
+  <a href="/flavors" class="top_links_nav_links">Flavors Index</a>
+</div>
 
-<h1><%= @flavors.first.flavor_name %></h1>
+<div class="format_indent">
+
+  <form class="" action='<%="/ice_cream_shops/#{@shop.id}/flavors"%>' method="post">
+    <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+    <input type="hidden" name="sort_by_name" value="true" />
+    <input type="submit" name="" value="Sort Alphabetically">
+  </form>
+
+  <button>
+    <a href="/ice_cream_shops/<%= @shop.id %>/flavors/new">Add New Flavor</a>
+  </button>
+
+  <h1 class="title">Flavors</h1>
+  <% @flavors.each do |flavor| %>
+    <h3><a href="/flavors/<%= flavor.id %>"><%= flavor.flavor_name%></a></h3>
+    <p>Dairy Free? <%= flavor.dairy?%></p>
+    <p>Nut Free? <%= flavor.nuts?%></p>
+    <p>Calories: <%= flavor.calories_per_scoop%></p>
+    <p>Price Per Scoop: <%= flavor.price_per_scoop%></p>
+    <p>Shop Id: <%= flavor.shop_id %></p>
+    <p>Created At: <%= flavor.created_at %></p>
+    <p>Updated At: <%= flavor.updated_at %></p>
+  <% end %>
+</div>

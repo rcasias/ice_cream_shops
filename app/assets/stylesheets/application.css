@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.title{
+  color: black;
+  font-family: cursive;
+}
+
+.top_nav_bar_wrapper{
+  background-color: lightblue;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  color: white;
+}
+
+.margin_left_display{
+  margin-left: auto;
+}
+
+.top_links_nav_links{
+  color: white;
+  padding: 10px;
+}
+
+.top_links_nav_links:hover{
+  color: black;
+}
+
+.title_header{
+  display: flex;
+  justify-content: center;
+  font-family: cursive;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.grid_contrainer{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.shop_name{
+  padding-left: 75px;
+  color: black;
+}
+
+.timestamp{
+  padding-left: 75px;
+}
+
+.shop_name:hover{
+  cursor: pointer;
+  color: white;
+}
+
+.grid_contrainer:hover{
+  background-color: lightblue;
+  opacity: .8;
+}
+
+.edit_delete_links_display{
+  display: -webkit-box;
+  padding-left: 75px;
+}
+
+/* .button{
+  border: black;
+} */
+
+.ice_cream_background_image{
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 5%), rgba(255, 255, 255, 1)),
+  url('https://image.freepik.com/free-photo/ice-cream-cones-with-copy-space_23-2148268194.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+.format_indent{
+  padding-left: 75px;
+}

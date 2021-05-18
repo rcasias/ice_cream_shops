@@ -43,6 +43,8 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'faker'
   gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
