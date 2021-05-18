@@ -1,6 +1,6 @@
 class FlavorsController < ApplicationController
   def index
-    @flavors = Flavor.all
+    @flavors = Flavor.all.order(:flavor_name).where('dairy_free' => true, 'nut_free' => true)
   end
 
   def new
@@ -13,10 +13,9 @@ class FlavorsController < ApplicationController
       nut_free: params[:flavor][:nut_free],
       calories_per_scoop: params[:flavor][:calories_per_scoop],
       price_per_scoop: params[:flavor][:price_per_scoop],
-      shop_id: params[:flavor][:shop_id],
-      created_at: params[:flavor][:created_at],
-      updated_at: params[:flavor][:updated_at]
+      shop_id: params[:flavor][:shop_id]
       })
+      # binding.pry
     flavor.save
     redirect_to '/flavors'
   end
@@ -37,8 +36,7 @@ class FlavorsController < ApplicationController
       nut_free: params[:flavor][:nut_free],
       calories_per_scoop: params[:flavor][:calories_per_scoop],
       price_per_scoop: params[:flavor][:price_per_scoop],
-      shop_id: params[:flavor][:shop_id],
-      updated_at: params[:flavor][:updated_at]
+      shop_id: params[:flavor][:shop_id]
       })
       flavor.save
       redirect_to "/flavors/#{flavor.id}"
@@ -48,4 +46,6 @@ class FlavorsController < ApplicationController
     Flavor.destroy(params[:id])
     redirect_to '/flavors'
   end
+
+
 end

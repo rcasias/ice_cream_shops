@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 FactoryBot.define do
   factory :shop do
-    name { Faker::Name.name }
+    name { Faker::Company.name }
     address { Faker::Address.full_address }
     phone_number { Faker::PhoneNumber.phone_number}
-    hours_of_operation { rand(4..8) }
+    hours_of_operation { rand(1..4) }
     has_delivery { rand(2) == 0 }
-    rating { rand() }
+    rating { rand(3.0..5.0) }
   end
 
   factory :flavor do
@@ -20,7 +20,7 @@ FactoryBot.define do
     dairy_free { rand(2) == 0 }
     nut_free { rand(2) == 0 }
     calories_per_scoop { rand(150..500) }
-    price_per_scoop { rand(1..3) }
+    price_per_scoop { rand(1.00..4.00) }
   end
 end
 

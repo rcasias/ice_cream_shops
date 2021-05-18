@@ -1,18 +1,30 @@
-<form action="/ice_cream_shops/<%= @shop.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH"/>
-  <h3>Edit</h3>
-  <p>Shop Name:</p>
-  <input type="text" name="shop[name]" value="<%= @shop.name %>"/><br/>
-  <p>Shop Address:</p>
-  <textarea name="shop[address]"><%= @shop.address %></textarea><br/>
-  <p>Shop Phone Number:</p>
-  <textarea name="shop[phone_number]"><%= @shop.phone_number %></textarea><br/>
-  <p>Shop Hours of Operation:</p>
-  <textarea name="shop[hours_of_operation]"><%= @shop.hours_of_operation %></textarea><br/>
-  <p>Does this shop have delivery?</p>
-  <textarea name="shop[has_delivery]"></textarea><br/>
-  <p>Shop Rating:</p>
-  <textarea name="shop[rating]"><%= @shop.rating %></textarea><br/>
-  <input type='submit'/>
-</form>
+<div class="top_nav_bar_wrapper">
+  <a href="/ice_cream_shops" class="top_links_nav_links margin_left_display">Ice Cream Shop Index</a>
+  <a href="flavors" class="top_links_nav_links">Flavors Index</a>
+</div>
+
+<div class="format_indent">
+  <form action="/ice_cream_shops/<%= @shop.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH"/>
+    <h2 class="title">Edit</h2>
+    <p>Shop Name:</p>
+    <input type="text" name="shop[name]" value="<%= @shop.name %>"/><br/>
+    <p>Shop Address:</p>
+    <textarea name="shop[address]"><%= @shop.address %></textarea><br/>
+    <p>Shop Phone Number:</p>
+    <textarea name="shop[phone_number]"><%= @shop.phone_number %></textarea><br/>
+    <p>Shop Hours of Operation:</p>
+    <textarea name="shop[hours_of_operation]"><%= @shop.hours_of_operation %></textarea><br/>
+
+    <p>Does this shop have delivery?</p>
+    <input type="radio" id="yes" name="shop[has_delivery]" value="true">
+    <label for="yes">Yes</label><br>
+    <input type="radio" id="no" name="shop[has_delivery]" value="false">
+    <label for="no">No</label><br>
+
+    <p>Shop Rating:</p>
+    <textarea name="shop[rating]"><%= @shop.rating %></textarea><br/>
+    <input type='Submit'/>
+  </form>
+</div>
