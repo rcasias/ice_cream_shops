@@ -4,7 +4,7 @@
 </div>
 
 <div class="format_indent">
-  <!-- <form action='/ice_cream_shops' method="post">
+  <form action='/ice_cream_shops' method="post">
     <input type="hidden" name="authenticity_token" value=" form_authenticity_token %>">
     <h2 class="title">Add a New Shop:</h2>
     <p>Shop Name:</p>
@@ -22,25 +22,7 @@
     <label for="no">No</label><br>
     <p>Shop rating:</p>
     <textarea name="shop[rating]"></textarea><br/>
-    <input type='Submit'/>
-  </form> -->
-  <%= form_with url: '/ice_cream_shops', method: :post, local: true do |form| %>
-    <%= form.label "Shop Name: " %><br/>
-    <%= form.text_field :name %><br/>
-    <%= form.label "Shop Address: " %><br/>
-    <%= form.text_field :address %><br/>
-    <%= form.label "Shop Phone Number: " %><br/>
-    <%= form.text_field :phone_number %><br/>
-    <%= form.label "Hours Of Operation: " %><br/>
-    <%= form.text_field :hours_of_operation %><br/>
-    <p>Does this shop have delivery?</p>
-    <input type="radio" id="yes" name="shop[has_delivery]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="shop[has_delivery]" value="false">
-    <label for="no">No</label><br>
-    <%= form.label "Shop Rating: " %><br/>
-    <%= form.text_field :rating %><br/>
-    <%= form.submit "Create Shop" %><br/>
-  <% end %>
+    <input name='Submit' type= 'Submit'/>
+  </form>
 
 </div>

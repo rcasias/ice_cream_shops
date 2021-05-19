@@ -3,9 +3,14 @@ class Shop < ApplicationRecord
 
   def delivery?
     if has_delivery
-      'yes'
+      'Yes'
     else
-      'no'
+      'No'
     end
   end
+
+  def self.order_shop_by_desc_date
+    order('created_at DESC')
+  end
+
 end
