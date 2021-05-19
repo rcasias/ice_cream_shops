@@ -4,6 +4,7 @@
 </div>
 
 <div class="format_indent">
+
   <form action="/ice_cream_shops/<%= @shop.id %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="PATCH"/>
@@ -27,4 +28,5 @@
     <textarea name="shop[rating]"><%= @shop.rating %></textarea><br/>
     <input type='Submit'/>
   </form>
+
 </div>

@@ -17,17 +17,29 @@ RSpec.describe 'the shop edit' do
   it 'links to then edit page' do
     shop = Shop.create!(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
     visit '/ice_cream_shops'
-
-    click_button('Edit')
-    expect(current_path).to eq ("/ice_cream_shops/#{shop.id}")
+    save_and_open_page
+    click_button "Edit #{shop.name}"
+    expect(current_path).to eq("/ice_cream_shops/#{shop.id}/edit")
   end
 
-  # it 'can create a new shop' do
-  #   visit '/ice_cream_shops/new'
-  #   fill_in('Name', with: 'Straberry')
-  #   click_button('Create Shop')
-  #
-  #   expect(current_path).to eq("/ice_cream_shops")
-  #   expect(page).to have_content("Straberry")
-  # end
+  it 'can edit the shop' do
+    shop = Shop.create!(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
+
+    visit ("/ice_cream_shops")
+
+    click_button "Edit #{shop.name}"
+
+    fill_in 'Name', with: 'Something Sweet'
+    fill_in('address', with: '1234')
+    fill_in('phone_number', with: '9999999999')
+    fill_in('hours_of_operation', with: '1-4')
+    page.choose('shop[has_delivery]', with: 'true')
+    fill_in('rating', with: '4.5')
+    click_button('Edit Shop')
+
+    expect(current_path).to eq("/ice_cream_shops")
+    expect(page).to have_content('Something Sweet')
+  end
+
+
 end

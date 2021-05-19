@@ -6,7 +6,7 @@
 <div class="format_indent">
   <h1 class="title"><%= @shop.name %></h1>
 
-  <h5>Number of flavors for this shop: <%= @flavors.count %></h5>
+  <h5>Number of flavors for this shop: <%= @flavors.total_number_of_flavors %></h5>
 
   <p><%= @shop.address %></p>
   <p><%= @shop.phone_number %></p>
