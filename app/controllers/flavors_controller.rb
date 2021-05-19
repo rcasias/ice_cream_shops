@@ -11,10 +11,6 @@ class FlavorsController < ApplicationController
     redirect_to '/flavors'
   end
 
-  def flavor_params
-    params.require(:flavor).permit(:flavor_name, :dairy_free, :nut_free, :calories_per_scoop, :price_per_scoop, :shop_id)
-  end
-
   def show
     @flavor = Flavor.find(params[:id])
   end
@@ -34,5 +30,8 @@ class FlavorsController < ApplicationController
     redirect_to '/flavors'
   end
 
-
+private
+  def flavor_params
+    params.require(:flavor).permit(:flavor_name, :dairy_free, :nut_free, :calories_per_scoop, :price_per_scoop, :shop_id)
+  end
 end

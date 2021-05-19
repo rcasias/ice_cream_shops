@@ -25,15 +25,13 @@ RSpec.describe 'the shop creation' do
 
   it 'can create a new shop' do
     visit '/ice_cream_shops/new'
-    fill_in('name', with: "New Shop Name")
-    save_and_open_page
-    fill_in('shop[address]', with: '1234')
-    fill_in('shop[phone_number]', with: '9999999999')
-    fill_in('shop[hours_of_operation]', with: '1-4')
-    page.choose('shop[has_delivery]', with: 'true')
-    fill_in('shop[rating]', with: '4.5')
-    # binding.pry
-    find('input[name="Submit"]').click
+    fill_in( 'Name', with: "New Shop Name")
+    fill_in('address', with: '1234')
+    fill_in('phone_number', with: '9999999999')
+    fill_in('hours_of_operation', with: '1-4')
+    page.choose('has_delivery', with: 'true')
+    fill_in('rating', with: '4.5')
+    click_button('Submit')
     expect(current_path).to eq('/ice_cream_shops')
     expect(page).to have_content('New Shop Name')
   end

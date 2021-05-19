@@ -4,7 +4,7 @@
 </div>
 
 <div class="format_indent">
-  <form action='/flavors' method="post">
+  <form id="new_form" action='/flavors' method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <h2 class="title">Add a new flavor for <%= @shop.name %>:</h2>
     <p>Flavor Name:</p>
@@ -31,4 +31,4 @@
 
     <input type='Submit'/>
   </form>
-</div>  
+</div>
