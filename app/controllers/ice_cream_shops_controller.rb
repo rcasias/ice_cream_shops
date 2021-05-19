@@ -7,13 +7,9 @@ class IceCreamShopsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     shop = Shop.create(shop_params)
     redirect_to "/ice_cream_shops"
-  end
-
-  def shop_params
-    params.require(:shop).permit(:name, :address, :phone_number, :hours_of_operation, :has_delivery, :rating)
   end
 
   def show
@@ -45,6 +41,11 @@ class IceCreamShopsController < ApplicationController
 
   def new_flavor
     @shop = Shop.find(params[:id])
+  end
+
+private
+  def shop_params
+    params.permit(:name, :address, :phone_number, :hours_of_operation, :has_delivery, :rating)
   end
 
 end

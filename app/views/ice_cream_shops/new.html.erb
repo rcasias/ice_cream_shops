@@ -4,7 +4,7 @@
 </div>
 
 <div class="format_indent">
-  <form action='/ice_cream_shops' method="post">
+  <!-- <form action='/ice_cream_shops' method="post">
     <input type="hidden" name="authenticity_token" value=" form_authenticity_token %>">
     <h2 class="title">Add a New Shop:</h2>
     <p>Shop Name:</p>
@@ -23,6 +23,24 @@
     <p>Shop rating:</p>
     <textarea name="shop[rating]"></textarea><br/>
     <input name='Submit' type= 'Submit'/>
-  </form>
+  </form> -->
+  <h2 class="title">Add a New Shop:</h2>
+  <%=form_with url: '/ice_cream_shops', method: :post, local: true do |form| %>
+    <%= form.label :name %><br/>
+    <%= form.text_field :name %><br/>
+    <%= form.label :address %><br/>
+    <%= form.text_field :address %><br/>
+    <%= form.label :phone_number %><br/>
+    <%= form.text_field :phone_number %><br/>
+    <%= form.label :hours_of_operation %><br/>
+    <%= form.text_field :hours_of_operation %><br/>
+    <%= form.label "Has Delivery?" %><br/>
+    <%= form.radio_button :has_delivery, 'true' %> Yes<br /><br/>
+    <%= form.radio_button :has_delivery, 'false' %> No<br /><br/>
+    <%= form.label :rating %><br/>
+    <%= form.text_field :rating %><br/>
+    <%= form.submit "Submit"%>
+  <% end %>
+
 
 </div>

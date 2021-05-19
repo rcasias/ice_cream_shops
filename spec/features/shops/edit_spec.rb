@@ -17,7 +17,7 @@ RSpec.describe 'the shop edit' do
   it 'links to then edit page' do
     shop = Shop.create!(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
     visit '/ice_cream_shops'
-    save_and_open_page
+    # save_and_open_page
     click_button "Edit #{shop.name}"
     expect(current_path).to eq("/ice_cream_shops/#{shop.id}/edit")
   end
