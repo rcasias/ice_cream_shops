@@ -4,26 +4,6 @@
 </div>
 
 <div class="format_indent">
-  <!-- <form action='/ice_cream_shops' method="post">
-    <input type="hidden" name="authenticity_token" value=" form_authenticity_token %>">
-    <h2 class="title">Add a New Shop:</h2>
-    <p>Shop Name:</p>
-    <input type='text' name='shop[name]'/><br/>
-    <p>Shop Address:</p>
-    <textarea name="shop[address]"></textarea><br/>
-    <p>Shop Phone Number:</p>
-    <textarea name="shop[phone_number]"></textarea><br/>
-    <p>Shop Hours of Operation:</p>
-    <textarea name="shop[hours_of_operation]"></textarea><br/>
-    <p>Does this shop have delivery?</p>
-    <input type="radio" id="yes" name="shop[has_delivery]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="shop[has_delivery]" value="false">
-    <label for="no">No</label><br>
-    <p>Shop rating:</p>
-    <textarea name="shop[rating]"></textarea><br/>
-    <input name='Submit' type= 'Submit'/>
-  </form> -->
   <h2 class="title">Add a New Shop:</h2>
   <%=form_with url: '/ice_cream_shops', method: :post, local: true do |form| %>
     <%= form.label :name %><br/>
@@ -39,7 +19,7 @@
     <%= form.radio_button :has_delivery, 'false' %> No<br /><br/>
     <%= form.label :rating %><br/>
     <%= form.text_field :rating %><br/>
-    <%= form.submit "Submit"%>
+    <%= form.submit "Submit", :class => 'button_margin'%>
   <% end %>
 
 

@@ -29,4 +29,5 @@ RSpec.describe 'the shop show page' do
     expect(page).to have_content("4-9")
     expect(page).to have_content("Yes")
   end
+
 end

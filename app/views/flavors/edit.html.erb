@@ -5,31 +5,30 @@
 </div>
 
 <div class="format_indent">
-  <form action="/flavors/<%= @flavor.id %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="PATCH"/>
-    <h2 class="title">Edit</h2>
-    <p>Flavor Name:</p>
-    <input type="text" name="flavor[flavor_name]" value="<%= @flavor.flavor_name %>"/><br/>
+  <h2 class="title">Edit Flavor:</h2>
+  <%= form_with url: "/flavors/#{@flavor.id}", method: :patch, local: true do |form| %>
 
-    <p>Has Dairy?</p>
-    <input type="radio" id="yes" name="flavor[dairy_free]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="flavor[dairy_free]" value="false">
-    <label for="no">No</label><br>
+    <%= form.label :flavor_name %><br/>
+    <%= form.text_field :flavor_name, value: "#{@flavor.flavor_name}" %><br/>
 
-    <p>Has Nuts?</p>
-    <input type="radio" id="yes" name="flavor[nut_free]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="flavor[nut_free]" value="false">
-    <label for="no">No</label><br>
+    <%= form.label "Has Dairy?" %><br/>
+    <%= form.radio_button :dairy_free, 'true' %> Yes<br /><br/>
+    <%= form.radio_button :dairy_free, 'false' %> No<br /><br/>
 
-    <p>Calories Per Scoop:</p>
-    <textarea name="flavor[calories_per_scoop]"><%= @flavor.calories_per_scoop %></textarea><br/>
-    <p>Price Per Scoop:</p>
-    <textarea name="flavor[price_per_scoop]"><%= @flavor.calories_per_scoop %></textarea><br/>
-    <p>Shop Id:</p>
-    <textarea name="flavor[shop_id]"><%= @flavor.shop_id %></textarea><br/>
-    <input type='Submit'/>
-  </form>
+    <%= form.label "Has Nuts?" %><br/>
+    <%= form.radio_button :nut_free, 'true' %> Yes<br /><br/>
+    <%= form.radio_button :nut_free, 'false' %> No<br /><br/>
+
+    <%= form.label :calories_per_scoop %><br/>
+    <%= form.text_field :calories_per_scoop, value: "#{@flavor.calories_per_scoop}" %><br/>
+
+    <%= form.label :price_per_scoop %><br/>
+    <%= form.text_field :price_per_scoop, value: "#{@flavor.price_per_scoop_to_cents}" %><br/>
+
+    <%= form.label :shop_id %><br/>
+    <%= form.text_field :shop_id, value: "#{@flavor.shop_id}" %><br/>
+
+    <%= form.submit "Submit"%>
+  <% end %>
+
 </div>

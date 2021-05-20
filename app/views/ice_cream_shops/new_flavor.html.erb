@@ -4,31 +4,32 @@
 </div>
 
 <div class="format_indent">
-  <form id="new_form" action='/flavors' method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <h2 class="title">Add a new flavor for <%= @shop.name %>:</h2>
-    <p>Flavor Name:</p>
-    <input type='text' name='flavor[flavor_name]'/><br/>
 
-    <p>Has Dairy?</p>
-    <input type="radio" id="yes" name="flavor[dairy_free]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="flavor[dairy_free]" value="false">
-    <label for="no">No</label><br>
+  <h2 class="title">Add a new flavor for <%= @shop.name %>:</h2>
 
-    <p>Has Nuts?</p>
-    <input type="radio" id="yes" name="flavor[nut_free]" value="true">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="no" name="flavor[nut_free]" value="false">
-    <label for="no">No</label><br>
+  <%= form_with url: '/flavors', method: :post, local: true do |form| %>
 
-    <p>Calories Per Scoop:</p>
-    <textarea name="flavor[calories_per_scoop]"></textarea><br/>
-    <p>Price Per Scoop:</p>
-    <textarea name="flavor[price_per_scoop]"></textarea><br/>
-    <p style="display:none;">Shop Id: </p>
-    <textarea name="flavor[shop_id]" style="display:none;"><%= @shop.id %></textarea><br/>
+    <%= form.label :flavor_name %><br/>
+    <%= form.text_field :flavor_name %><br/>
 
-    <input type='Submit'/>
-  </form>
+    <%= form.label "Has Dairy?" %><br/>
+    <%= form.radio_button :dairy_free, 'true' %> Yes<br /><br/>
+    <%= form.radio_button :dairy_free, 'false' %> No<br /><br/>
+
+    <%= form.label "Has Nuts?" %><br/>
+    <%= form.radio_button :nut_free, 'true' %> Yes<br /><br/>
+    <%= form.radio_button :nut_free, 'false' %> No<br /><br/>
+
+    <%= form.label :calories_per_scoop %><br/>
+    <%= form.text_field :calories_per_scoop %><br/>
+
+    <%= form.label :price_per_scoop %><br/>
+    <%= form.text_field :price_per_scoop %><br/>
+
+
+    <%= form.label :shop_id, style: "display:none;"  %><br/>
+    <%= form.text_field :shop_id, value: "#{@shop.id}", style: "display:none;" %><br/>
+
+    <%= form.submit "Submit", :class => 'button_margin'%>
+  <% end %>
 </div>

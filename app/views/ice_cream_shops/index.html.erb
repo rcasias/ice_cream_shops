@@ -20,15 +20,16 @@
       </div>
 
       <div class="edit_delete_links_display">
-        <button type="button" name="button" class="">
-          <a class= "" href="/ice_cream_shops/<%= shop.id  %>/edit">Edit</a>
+        <button type="button" name="button" class="" style= "margin-right: 5px;">
+          <a href="/ice_cream_shops/<%= shop.id  %>/edit">Edit</a>
         </button>
 
-        <form class= "action="/ice_cream_shops/<%= shop.id %>" method="POST">
+        <form action="/ice_cream_shops/<%= shop.id %>" method="POST">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete"/>
+          <input type="submit" value="Delete Shop"/>
         </form>
+
       </div>
 
     </div>

@@ -32,6 +32,6 @@ class FlavorsController < ApplicationController
 
 private
   def flavor_params
-    params.require(:flavor).permit(:flavor_name, :dairy_free, :nut_free, :calories_per_scoop, :price_per_scoop, :shop_id)
+    params.permit(:flavor_name, :dairy_free, :nut_free, :calories_per_scoop, :price_per_scoop, :shop_id)
   end
 end

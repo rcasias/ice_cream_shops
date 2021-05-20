@@ -13,4 +13,8 @@ class Shop < ApplicationRecord
     order('created_at DESC')
   end
 
+  def rounded_rating
+    rating.round(1)
+  end
+
 end

@@ -25,12 +25,26 @@ RSpec.describe Flavor, type: :model do
     expect(Flavor.sort_flavors_by_name).to eq([flavor2, flavor])
   end
 
+  # User Story 15, Child Index only shows `true` Records (x2)
+  #
+  # As a visitor
+  # When I visit the child index
+  # Then I only see records where the boolean column is `true`
+
   it 'can sort out false booleans' do
     shop = Shop.create(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
     flavor = shop.flavors.create(flavor_name: "Vanilla", dairy_free: true, nut_free: true, price_per_scoop: 2.5, calories_per_scoop: 100, shop_id: 1)
     flavor2 = shop.flavors.create(flavor_name: "Chocolate", dairy_free: false, nut_free: true, price_per_scoop: 2.5, calories_per_scoop: 100, shop_id: 1)
     expect(Flavor.sort_out_false_booleans).to eq([flavor])
   end
+
+  # User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
+  #
+  # As a visitor
+  # When I visit the Parent's children Index Page
+  # Then I see a link to sort children in alphabetical order
+  # When I click on the link
+  # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
 
   it 'can alphabatize with order keyword' do
     shop = Shop.create(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
@@ -87,4 +101,5 @@ RSpec.describe Flavor, type: :model do
     flavor2 = shop.flavors.create(flavor_name: "Chocolate", dairy_free: false, nut_free: false, price_per_scoop: 2.5, calories_per_scoop: 100, shop_id: 1)
     expect(flavor2.nuts?).to eq('No')
   end
+
 end
