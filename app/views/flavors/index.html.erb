@@ -16,14 +16,7 @@
       <input type="text" name="" value=""/><br/>
     <input class="button_margin" type='Submit'/><br/>
 
-    <!-- <label for="shops">Fliter By Price Per Scoop:</label><br/>
 
-    <select name="price" id="price">
-      <option value="Option 1">$0-$0.99</option>
-      <option value="Option 2">$1-$1.99</option>
-      <option value="Option 3">$2-$2.99</option>
-      <option value="Option 4">$3-$3.99</option>
-    </select> -->
 
     <% @flavors.each do |flavor| %>
       <h2><a href="/flavors/<%= flavor.id %>"><%= flavor.flavor_name%></a></h2>
@@ -42,7 +35,7 @@
       <form action="/flavors/<%= flavor.id %>" method="POST">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete"/>
+        <input type="submit" value="Delete Flavor"/>
       </form>
 
     <% end %>

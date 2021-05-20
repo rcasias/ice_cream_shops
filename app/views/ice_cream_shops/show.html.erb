@@ -16,15 +16,15 @@
   <p><%= @shop.created_at %></p>
   <p><%= @shop.updated_at %></p>
 
-  <button type="button" name="button">
+  <button type="button" name="button" class="button_margin">
     <a href="/ice_cream_shops/<%= @shop.id %>/flavors">Ice Cream Flavors Offered</a>
   </button><br/>
 
-  <button type="button" name="button">
+  <button type="button" name="button" class="button_margin">
     <a href="/ice_cream_shops/<%= @shop.id %>/edit">Edit Shop</a>
   </button>
 
-  <form action="/ice_cream_shops/<%= @shop.id %>" method="POST">
+  <form action="/ice_cream_shops/<%= @shop.id %>" method="POST" class="button_margin">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Shop"/>
