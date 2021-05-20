@@ -21,7 +21,7 @@
     <%= form.radio_button :has_delivery, 'false' %> No<br /><br/>
     <%= form.label :rating %><br/>
     <%= form.text_field :rating, value: "#{@shop.rating}" %><br/>
-    <%= form.submit "Submit"%>
+    <%= form.submit "Submit", :class => 'button_margin'%>
   <% end %>
 
 </div>
