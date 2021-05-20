@@ -29,4 +29,8 @@ class Flavor < ApplicationRecord
     where('dairy_free' => true, 'nut_free' => true)
   end
 
+  def price_per_scoop_to_cents
+    price_per_scoop.round(2)
+  end
+
 end

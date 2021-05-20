@@ -17,6 +17,13 @@ RSpec.describe Shop, type: :model do
     expect(shop2.has_delivery).to eq(false)
   end
 
+  # User Story 6, Parent Index sorted by Most Recently Created (x2)
+  #
+  # As a visitor
+  # When I visit the parent index,
+  # I see that records are ordered by most recently created first
+  # And next to each of the records I see when it was created
+
   it 'can sort by date' do
     shop = Shop.create(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
     shop2 = Shop.create(name: "Vamilla", address: "456", phone_number: "777-777-7777", rating: 4.9, hours_of_operation: "4-9", has_delivery:  true)
@@ -39,5 +46,10 @@ RSpec.describe Shop, type: :model do
     shop = Shop.create(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.5, hours_of_operation: "4-9", has_delivery:  true)
     shop2 = Shop.create(name: "Vamilla", address: "456", phone_number: "777-777-7777", rating: 4.9, hours_of_operation: "4-9", has_delivery:  true)
     expect(Shop.count).to eq(2)
+  end
+
+  it 'can tell you no for having nuts' do
+    shop = Shop.create(name: "Ice Cream", address: "123", phone_number: "999-999-9999", rating: 4.534234, hours_of_operation: "4-9", has_delivery:  true)
+    expect(shop.rounded_rating).to eq(4.5)
   end
 end

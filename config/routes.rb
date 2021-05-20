@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/ice_cream_shops/:id', to: 'ice_cream_shops#show'
   get '/ice_cream_shops/:id/edit', to: 'ice_cream_shops#edit'
   patch '/ice_cream_shops/:id', to: 'ice_cream_shops#update'
-  delete 'ice_cream_shops/:id', to: 'ice_cream_shops#destroy'
+  delete '/ice_cream_shops/:id', to: 'ice_cream_shops#destroy'
 
   get '/flavors', to: 'flavors#index'
   post '/flavors', to: 'flavors#create'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/flavors/:id', to: 'flavors#show'
   get '/flavors/:id/edit', to: 'flavors#edit'
   patch '/flavors/:id', to: 'flavors#update'
-  delete 'flavors/:id', to: 'flavors#destroy'
+  delete '/flavors/:id', to: 'flavors#destroy'
 
   get '/ice_cream_shops/:id/flavors', to: 'ice_cream_shops#flavors'
   get '/ice_cream_shops/:id/flavors/new', to: 'ice_cream_shops#new_flavor'

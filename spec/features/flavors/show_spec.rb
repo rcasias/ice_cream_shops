@@ -24,6 +24,10 @@ RSpec.describe 'Flavors Show Page' do
     flavor2 = shop.flavors.create!(flavor_name: "Chocolate", dairy_free: false, nut_free: true, price_per_scoop: 2.5, calories_per_scoop: 100, shop_id: 1)
     visit "/flavors/#{flavor.id}"
     expect(flavor.flavor_name).to eq('Vanilla')
+    expect(flavor.dairy?).to eq('No')
+    expect(flavor.nuts?).to eq('Yes')
+    expect(flavor.price_per_scoop).to eq(2.5)
+    expect(flavor.calories_per_scoop).to eq(100)
     expect(page).to have_content(shop.name)
   end
 end

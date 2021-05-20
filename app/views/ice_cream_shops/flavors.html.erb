@@ -5,25 +5,27 @@
 
 <div class="format_indent">
 
-  <form class="" action='<%="/ice_cream_shops/#{@shop.id}/flavors"%>' method="post">
+  <form class="button_margin" action='<%="/ice_cream_shops/#{@shop.id}/flavors"%>' method="post">
     <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
     <input type="hidden" name="sort_by_name" value="true" />
     <input type="submit" name="" value="Sort Alphabetically">
   </form>
 
   <button>
-    <a href="/ice_cream_shops/<%= @shop.id %>/flavors/new">Add New Flavor</a>
+    <a class="button_margin" href="/ice_cream_shops/<%= @shop.id %>/flavors/new">Add New Flavor</a>
   </button>
 
-  <h1 class="title">Flavors</h1>
+  <h1 class="title">Flavors For <%= @shop.name %>:</h1>
   <% @flavors.each do |flavor| %>
     <h3><a href="/flavors/<%= flavor.id %>"><%= flavor.flavor_name%></a></h3>
     <p>Dairy Free? <%= flavor.dairy?%></p>
     <p>Nut Free? <%= flavor.nuts?%></p>
     <p>Calories: <%= flavor.calories_per_scoop%></p>
-    <p>Price Per Scoop: <%= flavor.price_per_scoop%></p>
+    <p>Price Per Scoop: $<%= flavor.price_per_scoop_to_cents%></p>
     <p>Shop Id: <%= flavor.shop_id %></p>
     <p>Created At: <%= flavor.created_at %></p>
     <p>Updated At: <%= flavor.updated_at %></p>
+
   <% end %>
+
 </div>
